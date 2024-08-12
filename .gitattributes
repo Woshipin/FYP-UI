@@ -1,0 +1,7 @@
+Frontend/img/vid-4.mp4 filter=lfs diff=lfs merge=lfs -text
+Frontend/img/vid-5.mp4 filter=lfs diff=lfs merge=lfs -text
+Frontend/img/vid-6.mp4 filter=lfs diff=lfs merge=lfs -text
+Frontend/img/vid-1.mp4 filter=lfs diff=lfs merge=lfs -text
+*.your_large_file_extension filter=lfs diff=lfs merge=lfs -text
+*.mp4 filter=lfs diff=lfs merge=lfs -text
+*.webm filter=lfs diff=lfs merge=lfs -text

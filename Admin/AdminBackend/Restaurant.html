@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>Modern Admin Dashboard</title>
+    <link rel="stylesheet" href="../AdminBackend/css/style.css">
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <!-- For Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- For Line Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css">
+    
+    <!-- Excel Modal -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+    <!-- 包含 Font Awesome 的 CSS 文件 Chart CSS Color-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+
+<body>
+    <input type="checkbox" id="menu-toggle">
+    <div class="sidebar">
+        <div class="side-header">
+            <h3>M<span>odern</span></h3>
+        </div>
+
+        <div class="side-content">
+            <div class="profile">
+                <div class="profile-img bg-img" style="background-image: url(../AdminBackend/img/3.jpeg)"></div>
+                <h6 style="color: white;">Admin Dashboard</h6>
+            </div>
+
+            <div class="side-menu">
+                <ul>
+                    <li>
+                        <a href="Dashboard.html" class="active">
+                            <span class="las la-home"></span>
+                            <small>Dashboard</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Staff.html">
+                            <span class="las la-user-tie"></span>
+                            <small>Staff</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Resort.html">
+                            <span class="fas fa-umbrella-beach"></span>
+                            <small>Resort</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Hotel.html">
+                            <span class="fas fa-hotel"></span>
+                            <small>Hotel</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Restaurant.html">
+                            <span class="fas fa-utensils"></span>
+                            <small>Restaurant</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Table.html">
+                            <span class="fas fa-table"></span>
+                            <small>Table</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Room.html">
+                            <span class="fas fa-bed"></span>
+                            <small>Room</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Gender.html">
+                            <span class="fas fa-venus-mars"></span>
+                            <small>Gender</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Contact.html">
+                            <span class="las la-envelope"></span>
+                            <small>Contact</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../AdminAuth/Login.html">
+                            <span class="fas fa-sign-out-alt"></span>
+                            <small>Logout</small>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+
+        <header>
+            <div class="header-content">
+                <label for="menu-toggle">
+                    <span class="las la-bars"></span>
+                </label>
+
+                <div class="header-menu">
+                    <label for="">
+                        <span class="las la-search"></span>
+                    </label>
+
+                    <div class="notify-icon">
+                        <span class="las la-envelope"></span>
+                        <span class="notify">4</span>
+                    </div>
+
+                    <div class="notify-icon">
+                        <span class="las la-bell"></span>
+                        <span class="notify">3</span>
+                    </div>
+
+                    <div class="user">
+                        <div class="bg-img" style="background-image: url(../AdminBackend/img/1.jpeg)"></div>
+
+                        <span class="las la-power-off"></span>
+                        <span>Logout</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+
+            <div class="page-content">
+
+                <div class="records table-responsive">
+
+                    <div class="record-header">
+                        <div class="add">
+                            <span>Entries</span>
+                            <select name="" id="">
+                                <option value="">ID</option>
+                            </select>
+                        </div>
+
+                        <div class="browse">
+                            <input type="search" placeholder="Search" class="record-search">
+                            <select name="" id="">
+                                <option value="">Status</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="p-2">Restaurant ID</th>
+                                    <th class="p-2">Restaurant Name</th>
+                                    <th class="p-2">Restaurant Image</th>
+                                    <th class="p-2">Restaurant Date</th>
+                                    <th class="p-2">Restaurant Time</th>
+                                    <th class="p-2">Restaurant Address</th>
+                                    <th class="p-2">Restaurant Description</th>
+                                    <th class="p-2">ACTIONS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="p-2">#2001</td>
+                                    <td class="p-2">The Gourmet Bistro</td>
+                                    <td class="p-2"><img src="https://via.placeholder.com/100" alt="The Gourmet Bistro" style="width:100px;height:auto;"></td>
+                                    <td class="p-2">2024-08-15</td>
+                                    <td class="p-2">19:00</td>
+                                    <td class="p-2">123 Main St, New York, USA</td>
+                                    <td class="p-2">A fine dining experience with a seasonal menu and elegant ambiance.</td>
+                                    <td class="p-2">
+                                        <div class="actions">
+                                            <a href="#" class="btn btn-info btn-sm"><i class="las la-eye"></i> View</a>
+                                            <a href="#" class="btn btn-warning btn-sm"><i class="las la-edit"></i> Edit</a>
+                                            <a onclick="return confirm('Are you sure you want to delete this data?')" href="#" class="btn btn-danger btn-sm"><i class="las la-trash"></i> Delete</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2">#2002</td>
+                                    <td class="p-2">Pasta Paradise</td>
+                                    <td class="p-2"><img src="https://via.placeholder.com/100" alt="Pasta Paradise" style="width:100px;height:auto;"></td>
+                                    <td class="p-2">2024-08-20</td>
+                                    <td class="p-2">12:00</td>
+                                    <td class="p-2">456 Elm St, San Francisco, USA</td>
+                                    <td class="p-2">Cozy Italian restaurant known for its homemade pasta and friendly service.</td>
+                                    <td class="p-2">
+                                        <div class="actions">
+                                            <a href="#" class="btn btn-info btn-sm"><i class="las la-eye"></i> View</a>
+                                            <a href="#" class="btn btn-warning btn-sm"><i class="las la-edit"></i> Edit</a>
+                                            <a onclick="return confirm('Are you sure you want to delete this data?')" href="#" class="btn btn-danger btn-sm"><i class="las la-trash"></i> Delete</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2">#2003</td>
+                                    <td class="p-2">Sushi Haven</td>
+                                    <td class="p-2"><img src="https://via.placeholder.com/100" alt="Sushi Haven" style="width:100px;height:auto;"></td>
+                                    <td class="p-2">2024-08-25</td>
+                                    <td class="p-2">18:30</td>
+                                    <td class="p-2">789 Oak St, Los Angeles, USA</td>
+                                    <td class="p-2">Modern sushi restaurant with a wide variety of fresh sushi and sashimi.</td>
+                                    <td class="p-2">
+                                        <div class="actions">
+                                            <a href="#" class="btn btn-info btn-sm"><i class="las la-eye"></i> View</a>
+                                            <a href="#" class="btn btn-warning btn-sm"><i class="las la-edit"></i> Edit</a>
+                                            <a onclick="return confirm('Are you sure you want to delete this data?')" href="#" class="btn btn-danger btn-sm"><i class="las la-trash"></i> Delete</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2">#2004</td>
+                                    <td class="p-2">Vegan Delights</td>
+                                    <td class="p-2"><img src="https://via.placeholder.com/100" alt="Vegan Delights" style="width:100px;height:auto;"></td>
+                                    <td class="p-2">2024-09-01</td>
+                                    <td class="p-2">11:00</td>
+                                    <td class="p-2">321 Pine St, Chicago, USA</td>
+                                    <td class="p-2">A vibrant eatery offering a variety of plant-based dishes and organic ingredients.</td>
+                                    <td class="p-2">
+                                        <div class="actions">
+                                            <a href="#" class="btn btn-info btn-sm"><i class="las la-eye"></i> View</a>
+                                            <a href="#" class="btn btn-warning btn-sm"><i class="las la-edit"></i> Edit</a>
+                                            <a onclick="return confirm('Are you sure you want to delete this data?')" href="#" class="btn btn-danger btn-sm"><i class="las la-trash"></i> Delete</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2">#2005</td>
+                                    <td class="p-2">Steakhouse Grill</td>
+                                    <td class="p-2"><img src="https://via.placeholder.com/100" alt="Steakhouse Grill" style="width:100px;height:auto;"></td>
+                                    <td class="p-2">2024-09-05</td>
+                                    <td class="p-2">20:00</td>
+                                    <td class="p-2">654 Maple St, Houston, USA</td>
+                                    <td class="p-2">A top-notch steakhouse featuring premium cuts of meat and a sophisticated atmosphere.</td>
+                                    <td class="p-2">
+                                        <div class="actions">
+                                            <a href="#" class="btn btn-info btn-sm"><i class="las la-eye"></i> View</a>
+                                            <a href="#" class="btn btn-warning btn-sm"><i class="las la-edit"></i> Edit</a>
+                                            <a onclick="return confirm('Are you sure you want to delete this data?')" href="#" class="btn btn-danger btn-sm"><i class="las la-trash"></i> Delete</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2">#2006</td>
+                                    <td class="p-2">Café Central</td>
+                                    <td class="p-2"><img src="https://via.placeholder.com/100" alt="Café Central" style="width:100px;height:auto;"></td>
+                                    <td class="p-2">2024-09-10</td>
+                                    <td class="p-2">08:00</td>
+                                    <td class="p-2">987 Birch St, Seattle, USA</td>
+                                    <td class="p-2">A charming café serving breakfast and lunch with a variety of pastries and coffee.</td>
+                                    <td class="p-2">
+                                        <div class="actions">
+                                            <a href="#" class="btn btn-info btn-sm"><i class="las la-eye"></i> View</a>
+                                            <a href="#" class="btn btn-warning btn-sm"><i class="las la-edit"></i> Edit</a>
+                                            <a onclick="return confirm('Are you sure you want to delete this data?')" href="#" class="btn btn-danger btn-sm"><i class="las la-trash"></i> Delete</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2">#2007</td>
+                                    <td class="p-2">BBQ House</td>
+                                    <td class="p-2"><img src="https://via.placeholder.com/100" alt="BBQ House" style="width:100px;height:auto;"></td>
+                                    <td class="p-2">2024-09-15</td>
+                                    <td class="p-2">13:00</td>
+                                    <td class="p-2">135 Cedar St, Denver, USA</td>
+                                    <td class="p-2">A casual spot known for its smoky barbecue and hearty sides.</td>
+                                    <td class="p-2">
+                                        <div class="actions">
+                                            <a href="#" class="btn btn-info btn-sm"><i class="las la-eye"></i> View</a>
+                                            <a href="#" class="btn btn-warning btn-sm"><i class="las la-edit"></i> Edit</a>
+                                            <a onclick="return confirm('Are you sure you want to delete this data?')" href="#" class="btn btn-danger btn-sm"><i class="las la-trash"></i> Delete</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2">#2008</td>
+                                    <td class="p-2">The Taco Truck</td>
+                                    <td class="p-2"><img src="https://via.placeholder.com/100" alt="The Taco Truck" style="width:100px;height:auto;"></td>
+                                    <td class="p-2">2024-09-20</td>
+                                    <td class="p-2">16:00</td>
+                                    <td class="p-2">246 Birch St, Phoenix, USA</td>
+                                    <td class="p-2">A popular food truck offering a variety of delicious and authentic tacos.</td>
+                                    <td class="p-2">
+                                        <div class="actions">
+                                            <a href="#" class="btn btn-info btn-sm"><i class="las la-eye"></i> View</a>
+                                            <a href="#" class="btn btn-warning btn-sm"><i class="las la-edit"></i> Edit</a>
+                                            <a onclick="return confirm('Are you sure you want to delete this data?')" href="#" class="btn btn-danger btn-sm"><i class="las la-trash"></i> Delete</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2">#2009</td>
+                                    <td class="p-2">Bistro Vino</td>
+                                    <td class="p-2"><img src="https://via.placeholder.com/100" alt="Bistro Vino" style="width:100px;height:auto;"></td>
+                                    <td class="p-2">2024-09-25</td>
+                                    <td class="p-2">21:00</td>
+                                    <td class="p-2">852 Oak St, Austin, USA</td>
+                                    <td class="p-2">An upscale bistro offering fine wines and gourmet dishes in a cozy setting.</td>
+                                    <td class="p-2">
+                                        <div class="actions">
+                                            <a href="#" class="btn btn-info btn-sm"><i class="las la-eye"></i> View</a>
+                                            <a href="#" class="btn btn-warning btn-sm"><i class="las la-edit"></i> Edit</a>
+                                            <a onclick="return confirm('Are you sure you want to delete this data?')" href="#" class="btn btn-danger btn-sm"><i class="las la-trash"></i> Delete</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>

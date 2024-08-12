@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete responsive hotel agency website design</title>
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- custome css file link -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- 3D Card CSS -->
+    <style>
+        .card-3D {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 50px;
+            background-color: black;
+        }
+
+        .box-3D {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 150px;
+            height: 200px;
+            transform-style: preserve-3d;
+            animation: animate 20s linear infinite;
+            margin-top: 20px;
+            /* Add space between the heading and the 3D box */
+        }
+
+        .box-3D:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes animate {
+            0% {
+                transform: perspective(1000px) rotateY(0deg);
+            }
+
+            100% {
+                transform: perspective(1000px) rotateY(360deg);
+            }
+        }
+
+        .box-3D span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform-origin: center;
+            transform-style: preserve-3d;
+            transform: rotateY(calc(var(--i) * 36deg)) translateZ(450px);
+            -webkit-box-reflect: below 2px linear-gradient(transparent, transparent, rgba(4, 4, 4, 0.267));
+        }
+
+        .box-3D span img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: 0.5s;
+            border-radius: 15px;
+            border: 4px double rgb(0, 0, 0);
+        }
+
+        img:hover {
+            transform: translateY(-2px);
+        }
+
+        .heading {
+            display: flex;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            /* Add space between the heading and the 3D box */
+        }
+
+        .heading span {
+            /* margin-bottom: 100px; */
+            margin: 50px 5px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .box-3D {
+                max-width: 300px;
+                height: 180px;
+            }
+
+            .box-3D span {
+                transform: rotateY(calc(var(--i) * 36deg)) translateZ(100px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .heading {
+                font-size: 1.5rem;
+            }
+
+            .box-3D {
+                max-width: 200px;
+                height: 150px;
+            }
+
+            .box-3D span {
+                transform: rotateY(calc(var(--i) * 36deg)) translateZ(75px);
+            }
+        }
+    </style>
+
+    <!-- {{-- More CSS --}} -->
+    <style>
+        /* =========== Discount ============ */
+        .discount {
+            position: relative;
+            height: 60rem;
+        }
+
+        .discount .overlay {
+            position: relative;
+            height: 100%;
+        }
+
+        .discount .overlay::after {
+            content: "";
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: var(--text-1);
+            opacity: 0.5;
+        }
+
+        .discount video {
+            object-fit: cover;
+        }
+
+        .discount .content {
+            position: absolute;
+            top: 52%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            text-align: center;
+        }
+
+        .discount .content h1 {
+            font-size: 5rem;
+            color: var(--white);
+            margin-bottom: 3rem;
+        }
+
+        .discount .content span {
+            justify-content: center;
+            border: 2px solid var(--white);
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 4rem;
+            width: 7rem;
+            height: 7rem;
+            margin: 0 auto;
+            cursor: pointer;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 567px) {
+            .discount {
+                height: 50rem;
+            }
+
+            .discount .content {
+                top: 50%;
+                width: 100%;
+            }
+
+            .discount .content h1 {
+                font-size: 3.5rem;
+            }
+
+            .discount .content .btn {
+                padding: 1rem;
+            }
+
+            .discount .content span {
+                font-size: 3rem;
+                width: 5rem;
+                height: 5rem;
+            }
+        }
+
+        /* =========== Trip ============ */
+        .trip {
+            overflow: hidden;
+        }
+
+        .trip .title {
+            text-align: center;
+            margin-bottom: 7rem;
+        }
+
+        .trip .title h1 {
+            font-size: 5rem;
+            margin: 2rem;
+        }
+
+        .trip .title p {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        .trip .row {
+            width: 95vw;
+            position: relative;
+        }
+
+        .trip .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .trip .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 300px;
+            height: 500px;
+        }
+
+        .trip .swiper-slide img {
+            display: block;
+            width: 100%;
+        }
+
+        .custom-next,
+        .custom-prev {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--primary);
+            color: var(--white);
+            font-size: 2.5rem;
+            border-radius: 50%;
+            height: 4rem;
+            width: 4rem;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .custom-next {
+            right: -60px;
+        }
+
+        .custom-prev {
+            left: -60px;
+        }
+
+        .custom-pagination {
+            position: absolute;
+            bottom: -10%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .swiper-pagination-bullet {
+            width: 30px;
+            height: 7px;
+            border-radius: 5px;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: var(--primary);
+        }
+
+        .swiper-pagination-bullet:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        .trip .explore {
+            text-align: center;
+            margin-top: 8rem;
+        }
+
+        @media (max-width: 1200px) {
+
+            .custom-next,
+            .custom-prev {
+                top: -15%;
+                transform: translateY(0%);
+            }
+
+            .custom-next {
+                right: 10px;
+            }
+
+            .custom-prev {
+                left: auto;
+                right: 70px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .trip .title p {
+                width: 90%;
+            }
+
+            .trip .swiper-slide {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .trip .title h1 {
+                font-size: 4rem;
+            }
+        }
+
+        /* =========== More ============ */
+        .travel-section .travel-title {
+            margin-bottom: 5rem;
+        }
+
+        .travel-section .travel-title p {
+            margin-top: 2rem;
+        }
+
+        .travel-section .travel-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+        }
+
+        .travel-section .travel-tours {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 9rem;
+        }
+
+        .travel-section .travel-content .travel-btn {
+            display: block;
+            text-align: center;
+            background-color: #ffcc00;
+            /* 根据图二中的按钮颜色 */
+            color: #000;
+            /* 按钮文字颜色 */
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .travel-section .travel-tours h3 {
+            margin: 1rem 0;
+        }
+
+        .travel-section img {
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .travel-section .travel-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* =========== Contact ============ */
+        /* 独立的 newsletter 样式，确保不影响其他样式 */
+        .newsletter-section {
+            background-color: #1b2a41;
+            /* 深蓝色 */
+            height: 30rem;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .newsletter-container {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 5rem;
+        }
+
+        .newsletter-content h2,
+        .newsletter-content p {
+            color: #ffffff;
+            /* 白色 */
+        }
+
+        .newsletter-content h2 {
+            margin-bottom: 2rem;
+            font-size: 3rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .newsletter-input-group {
+            position: relative;
+            width: 90%;
+        }
+
+        .newsletter-input-group input {
+            width: 100%;
+            outline: none;
+            border: none;
+            padding: 1.5rem 0;
+            text-indent: 1rem;
+            font-size: 1.7rem;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .newsletter-input-group button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 1rem;
+            outline: none;
+            border: none;
+            background-color: #1b2a41;
+            color: #ffffff;
+            padding: 0.8rem 3rem;
+            font-size: 1.7rem;
+            font-weight: 500;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 767px) {
+            .newsletter-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .newsletter-form {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 567px) {
+            .newsletter-section {
+                height: 40rem;
+                padding-bottom: 10rem;
+            }
+        }
+
+        /* =========== Contact Us ============ */
+        .contact .title {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .contact .title p {
+            width: 60%;
+            margin: 2rem auto 0;
+        }
+
+        .location {
+            height: 500px;
+        }
+
+        .location iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+        @media (max-width: 567px) {
+            .contact .title p {
+                width: 90%;
+            }
+
+            .location {
+                height: 350px;
+            }
+        }
+
+        /* =========== Preloader ============ */
+
+        .loader {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999999;
+            background-color: var(--white);
+        }
+
+        .loader img {
+            width: 20rem;
+            height: 20rem;
+        }
+
+        img,
+        video {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+    <!-- Scroll Reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+</head>
+
+<body>
+
+    <!-- header section starts -->
+    <header>
+
+        <div id="menu-bar" class="fas fa-bars"></div>
+
+        <a href="#" class="logo"><span>Free Travel Website</span></a>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="Resort.html">Resort</a>
+            <a href="Restaurant.html">Restaurant</a>
+            <a href="Hotel.html">Hotel</a>
+            <a href="Contact.html">Contact</a>
+            <a href="Comment.html">Comment</a>
+            <a href="../Backend/startbootstrap-sb-admin-2-gh-pages/dashboard.html">My Dashboard</a>
+            <a class="btn" href="Auth/Login.html">Login</a>
+        </nav>
+
+    </header>
+    <!-- header section ends -->
+
+    <!-- login form container -->
+    <div class="login-form-container">
+        <i class="fas fa-times" id="form-close"></i>
+        <form action="">
+            <h3>Login</h3>
+            <input type="email" class="box" placeholder="Enter Your Email">
+            <input type="password" class="box" placeholder="Enter Your Password">
+            <input type="submit" value="login now" class="btn">
+            <input type="checkbox" id="remmember">
+            <label for="remember">Remember Me</label>
+            <p>Forget Password?<a href="">Click Here</a></p>
+            <p>Don't have Any Account?<a href="">Register Now</a></p>
+        </form>
+    </div>
+
+    <!-- Home Section Starts -->
+    <section class="home" id="home">
+
+        <div class="content">
+            <h3>Welcome to A global icon of luxury</h3>
+            <p>Discover new places with us, luxury awaits</p>
+            <a href="#" class="btn">Discover More</a>
+        </div>
+
+        <div class="controls">
+            <span class="vid-btn active" data-src="img/vid-1.mp4"></span>
+            <span class="vid-btn" data-src="img/vid-2.mp4"></span>
+            <span class="vid-btn" data-src="img/vid-3.mp4"></span>
+            <span class="vid-btn" data-src="img/vid-4.mp4"></span>
+            <span class="vid-btn" data-src="img/vid-5.mp4"></span>
+        </div>
+
+        <div class="video-container">
+            <video src="img/vid-1.mp4" id="video-slider" loop autoplay muted></video>
+        </div>
+
+    </section>
+    <!-- Home Section Ends -->
+
+    <!-- Packages Section Starts -->
+    <section class="packages" id="packages">
+        <h1 class="heading">
+            <span>P</span>
+            <span>a</span>
+            <span>c</span>
+            <span>k</span>
+            <span>a</span>
+            <span>g</span>
+            <span>e</span>
+            <span>s</span>
+        </h1>
+
+        <div class="box-container">
+            <div class="box">
+                <img src="img/p-1.jpg" alt="">
+                <div class="content">
+                    <h3><i class="fas fa-map-marker-alt"></i> mumbai </h3>
+                    <p>Lorem Ipsum is simply dummy text of the farhan and typesetting industry.</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="price"> $90.00 <span>$120.00</span></div>
+                    <a href="#" class="btn">Book Now</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="img/p-2.jpg" alt="">
+                <div class="content">
+                    <h3><i class="fas fa-map-marker-alt"></i> mumbai </h3>
+                    <p>Lorem Ipsum is simply dummy text of the farhan and typesetting industry.</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="price"> $90.00 <span>$120.00</span></div>
+                    <a href="#" class="btn">Book Now</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="img/p-2.jpg" alt="">
+                <div class="content">
+                    <h3><i class="fas fa-map-marker-alt"></i> mumbai </h3>
+                    <p>Lorem Ipsum is simply dummy text of the farhan and typesetting industry.</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="price"> $90.00 <span>$120.00</span></div>
+                    <a href="#" class="btn">Book Now</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="img/p-2.jpg" alt="">
+                <div class="content">
+                    <h3><i class="fas fa-map-marker-alt"></i> mumbai </h3>
+                    <p>Lorem Ipsum is simply dummy text of the farhan and typesetting industry.</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="price"> $90.00 <span>$120.00</span></div>
+                    <a href="#" class="btn">Book Now</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="img/p-2.jpg" alt="">
+                <div class="content">
+                    <h3><i class="fas fa-map-marker-alt"></i> mumbai </h3>
+                    <p>Lorem Ipsum is simply dummy text of the farhan and typesetting industry.</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="price"> $90.00 <span>$120.00</span></div>
+                    <a href="#" class="btn">Book Now</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="img/p-2.jpg" alt="">
+                <div class="content">
+                    <h3><i class="fas fa-map-marker-alt"></i> mumbai </h3>
+                    <p>Lorem Ipsum is simply dummy text of the farhan and typesetting industry.</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="price"> $90.00 <span>$120.00</span></div>
+                    <a href="#" class="btn">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- Packages Section Ends -->
+
+    <!-- Services Section Starts -->
+    <section class="services" id="services">
+        <h1 class="heading">
+            <span>S</span>
+            <span>e</span>
+            <span>r</span>
+            <span>v</span>
+            <span>i</span>
+            <span>c</span>
+            <span>e</span>
+            <span>s</span>
+        </h1>
+
+        <div class="box-container">
+            <div class="box">
+                <i class="fas fa-hotel"></i>
+                <h3>Resort</h3>
+                <p>Lorem Ipsum is simply dummy text of the farhan and typesetting industry.
+                    Lorem Ipsum is simply dummy text of the farhan and typesetting industry.
+                    Lorem Ipsum is simply dummy text of the farhan and typesetting industry.
+                </p>
+            </div>
+            <div class="box">
+                <i class="fas fa-utensils"></i>
+                <h3>Food and Drinks</h3>
+                <p>Lorem Ipsum is simply dummy text of the farhan and typesetting industry.
+                    Lorem Ipsum is simply dummy text of the farhan and typesetting industry.
+                    Lorem Ipsum is simply dummy text of the farhan and typesetting industry.
+                </p>
+            </div>
+            <div class="box">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Safty Guide</h3>
+                <p>Lorem Ipsum is simply dummy text of the farhan and typesetting industry.
+                    Lorem Ipsum is simply dummy text of the farhan and typesetting industry.
+                    Lorem Ipsum is simply dummy text of the farhan and typesetting industry.
+                </p>
+            </div>
+            <div class="box">
+                <i class="fas fa-globe-asia"></i>
+                <h3>Around The World</h3>
+                <p>Lorem Ipsum is simply dummy text of the farhan and typesetting industry.
+                    Lorem Ipsum is simply dummy text of the farhan and typesetting industry.
+                    Lorem Ipsum is simply dummy text of the farhan and typesetting industry.
+                </p>
+            </div>
+            <div class="box">
+                <i class="fas fa-plane"></i>
+                <h3>fastest Travel</h3>
+                <p>Lorem Ipsum is simply dummy text of the farhan and typesetting industry.
+                    Lorem Ipsum is simply dummy text of the farhan and typesetting industry.
+                    Lorem Ipsum is simply dummy text of the farhan and typesetting industry.
+                </p>
+            </div>
+            <div class="box">
+                <i class="fas fa-hiking"></i>
+                <h3>Adventures</h3>
+                <p>Lorem Ipsum is simply dummy text of the farhan and typesetting industry.
+                    Lorem Ipsum is simply dummy text of the farhan and typesetting industry.
+                    Lorem Ipsum is simply dummy text of the farhan and typesetting industry.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section Ends -->
+
+    <br><br><br>
+
+    <!-- Gallery Section Starts -->
+    <section class="card-3D" id="card-3D">
+        <h1 class="heading">
+            <span>G</span>
+            <span>a</span>
+            <span>l</span>
+            <span>l</span>
+            <span>e</span>
+            <span>r</span>
+            <span>y</span>
+        </h1>
+
+        <div class="box-3D">
+            <span style="--i:1"><img src="./images/pic-1.jpg"></span>
+            <span style="--i:2"><img src="./images/pic-2.jpg"></span>
+            <span style="--i:3"><img src="./images/pic-3.jpg"></span>
+            <span style="--i:4"><img src="./images/pic-4.jpg"></span>
+            <span style="--i:5"><img src="./images/pic-5.jpg"></span>
+            <span style="--i:6"><img src="./images/pic-6.jpg"></span>
+            <span style="--i:7"><img src="./images/vert-1.jpg"></span>
+            <span style="--i:8"><img src="./images/vert-2.jpg"></span>
+            <span style="--i:9"><img src="./images/vert-3.jpg"></span>
+            <span style="--i:10"><img src="./images/vert-4.jpg"></span>
+        </div>
+
+    </section>
+    <!-- Gallery Section Ends -->
+
+    <br><br><br>
+
+    <!-- Review Section Starts -->
+    <section class="review" id="review">
+        <h1 class="heading">
+            <span>R</span>
+            <span>e</span>
+            <span>v</span>
+            <span>i</span>
+            <span>e</span>
+            <span>w</span>
+        </h1>
+
+        <div class="swiper mySwiper review-slider">
+            <div class="swiper-wrapper wrapper">
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="img/p-1.jpg" alt="">
+                        <h3>Edward Bey</h3>
+                        <p>Lorem Ipsum is simply dummy text of the farhan and typesetting industry.</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="img/p-1.jpg" alt="">
+                        <h3>The Rock</h3>
+                        <p>Lorem Ipsum is simply dummy text of the farhan and typesetting industry.</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="img/p-1.jpg" alt="">
+                        <h3>John Wick</h3>
+                        <p>Lorem Ipsum is simply dummy text of the farhan and typesetting industry.</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="img/p-1.jpg" alt="">
+                        <h3>John Wick</h3>
+                        <p>Lorem Ipsum is simply dummy text of the farhan and typesetting industry.</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="img/p-1.jpg" alt="">
+                        <h3>John Wick</h3>
+                        <p>Lorem Ipsum is simply dummy text of the farhan and typesetting industry.</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="img/p-1.jpg" alt="">
+                        <h3>John Wick</h3>
+                        <p>Lorem Ipsum is simply dummy text of the farhan and typesetting industry.</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Review Section Ends -->
+
+    <br><br><br>
+
+    <!-- More Section -->
+    <section class="travel-section" data-sr>
+        <div class="travel-container">
+            <div class="travel-content">
+                <div class="travel-title">
+                    <h1>
+                        More Places for <br />
+                        Your Next Travel
+                    </h1>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Consequatur enim iste autem laboriosam distinctio!
+                        Reprehenderit.
+                    </p>
+                </div>
+                <div class="travel-tours">
+                    <div class="box">
+                        <img src="images/pic-2.jpg" alt="" />
+                        <h3>Visit to Bali</h3>
+                        <h4>$6000</h4>
+                    </div>
+                    <div class="box">
+                        <img src="images/pic-3.jpg" alt="" />
+                        <h3>Visit to Russia</h3>
+                        <h4>$8000</h4>
+                    </div>
+                </div>
+                <a href="#" class="travel-btn">Explore more tours now</a>
+            </div>
+            <div class="travel-image">
+                <img src="images/pic-4.jpg" class="image-travel" alt="Beach" />
+            </div>
+        </div>
+    </section>
+
+    <br><br><br>
+
+    <!-- NewsLetter Section -->
+    <section class="newsletter-section" data-sr>
+        <div class="newsletter-container">
+            <div class="newsletter-content" data-sr="content">
+                <h2>Subscribe to our Newsletter</h2>
+                <p class="ppp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias laborum fugiat, voluptatem
+                    eligendi dolorum distinctio.</p>
+            </div>
+            <form class="newsletter-form" data-sr="form">
+                <div class="newsletter-input-group">
+                    <input type="email" placeholder="Email" />
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <br><br><br>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact" data-sr>
+        <div class="title">
+            <h1 class="ppp">Our Location</h1>
+            <p class="ppp">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat,
+                quaerat repellendus quae laudantium porro sunt consequatur eaque
+                fugiat expedita provident.
+            </p>
+        </div>
+
+        <div class="location container" data-no-sr>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.389126124463!2d103.67928727472494!3d1.5336266984520133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da73c109632e0b%3A0x74cda51bf210c304!2z5Y2X5pa55aSn5a2m5a2m6Zmi!5e0!3m2!1szh-CN!2smy!4v1716961611004!5m2!1szh-CN!2smy"
+                width="600" height="550" style="border: 0" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <br><br><br><br><br>
+
+    <!-- Footer Section Starts -->
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>About Us</h3>
+                <p>AAA</p>
+            </div>
+            <div class="box">
+                <h3>Branch Location</h3>
+                <a href="">USA</a>
+                <a href="">USA</a>
+                <a href="">USA</a>
+                <a href="">USA</a>
+                <a href="">USA</a>
+                <a href="">USA</a>
+            </div>
+            <div class="box">
+                <h3>Website Page Link</h3>
+                <a href="">Home</a>
+                <a href="">Booking</a>
+                <a href="">Package</a>
+                <a href="">Services</a>
+                <a href="">Gallery</a>
+                <a href="">Contact</a>
+            </div>
+            <div class="box">
+                <h3>Website Page Link</h3>
+                <a href="">Facebook</a>
+                <a href="">Instagram</a>
+                <a href="">Twitter</a>
+                <a href="">Line</a>
+                <a href="">Tiktok</a>
+                <a href="">WhatApps</a>
+            </div>
+        </div>
+        <h1 class="credit">Created By <span>Southern Website Sign</span> | All Rights Reserved!!</h1>
+    </section>
+    <!-- Footer Section Ends -->
+
+    <!--------------------------------------------------------- JS Area ------------------------------------------------------------->
+    <!-- Scroll REveal Effect JS -->
+    <script>
+        // 滑下效果：元素从底部滑入
+        ScrollReveal().reveal('.packages .box', {
+            origin: 'bottom',
+            distance: '50px',
+            duration: 1000,
+            interval: 200,
+            easing: 'ease-in-out'
+        });
+
+        ScrollReveal().reveal('.services .box', {
+            origin: 'bottom',
+            distance: '50px',
+            duration: 1000,
+            interval: 200,
+            easing: 'ease-in-out'
+        });
+
+        ScrollReveal().reveal('.card-3D .box-3D span', {
+            origin: 'bottom',
+            distance: '50px',
+            duration: 1000,
+            interval: 200,
+            easing: 'ease-in-out'
+        });
+
+        ScrollReveal().reveal('.review .swiper-slide', {
+            origin: 'bottom',
+            distance: '50px',
+            duration: 1000,
+            interval: 200,
+            easing: 'ease-in-out'
+        });
+
+        ScrollReveal().reveal('.travel-section .travel-container', {
+            origin: 'bottom',
+            distance: '50px',
+            duration: 1000,
+            easing: 'ease-in-out'
+        });
+
+        ScrollReveal().reveal('.newsletter-section .newsletter-container', {
+            origin: 'bottom',
+            distance: '50px',
+            duration: 1000,
+            easing: 'ease-in-out'
+        });
+
+        ScrollReveal().reveal('.contact .location', {
+            origin: 'bottom',
+            distance: '50px',
+            duration: 1000,
+            easing: 'ease-in-out'
+        });
+
+        // 滑上效果：元素从顶部滑入
+        ScrollReveal().reveal('.packages .box', {
+            origin: 'top',
+            distance: '50px',
+            duration: 1000,
+            interval: 200,
+            easing: 'ease-in-out'
+        });
+
+        ScrollReveal().reveal('.services .box', {
+            origin: 'top',
+            distance: '50px',
+            duration: 1000,
+            interval: 200,
+            easing: 'ease-in-out'
+        });
+
+        ScrollReveal().reveal('.card-3D .box-3D span', {
+            origin: 'top',
+            distance: '50px',
+            duration: 1000,
+            interval: 200,
+            easing: 'ease-in-out'
+        });
+
+        ScrollReveal().reveal('.review .swiper-slide', {
+            origin: 'top',
+            distance: '50px',
+            duration: 1000,
+            interval: 200,
+            easing: 'ease-in-out'
+        });
+
+        ScrollReveal().reveal('.travel-section .travel-container', {
+            origin: 'top',
+            distance: '50px',
+            duration: 1000,
+            easing: 'ease-in-out'
+        });
+
+        ScrollReveal().reveal('.newsletter-section .newsletter-container', {
+            origin: 'top',
+            distance: '50px',
+            duration: 1000,
+            easing: 'ease-in-out'
+        });
+
+        ScrollReveal().reveal('.contact .location', {
+            origin: 'top',
+            distance: '50px',
+            duration: 1000,
+            easing: 'ease-in-out'
+        });
+    </script>
+        
+    <!-- custome js file link -->
+    <script src="main.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <script>
+        // Your JavaScript code that initializes Swiper
+        var swiper = new Swiper(".mySwiper", {
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 1,
+                },
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+            },
+        });
+    </script>
+
+    <script>
+        // Your JavaScript code that initializes Swiper
+        var swiper = new Swiper(".brand-slider", {
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                450: {
+                    slidesPerView: 2,
+                },
+                768: {
+                    slidesPerView: 3,
+                },
+                991: {
+                    slidesPerView: 4,
+                },
+                1200: {
+                    slidesPerView: 5,
+                },
+            },
+        });
+    </script>
+
+</body>
+
+</html>
